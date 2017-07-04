@@ -1,0 +1,42 @@
+//Floyd Warshal in single line
+#include <bits/stdc++.h>
+#define pb push_back
+#define mp make_pair
+#define ll long long
+#define MAX 1000000
+#define first f
+#define second s
+#define INF INT_MAX
+#define INFLL LONG_LONG_MAX
+#define pii pair<int,int>
+#define pll pair<long,long>
+#define mset(a,val) memset(a,val,sizeof(a))
+#define loop(i,n)  for(int i=0;i<n;i++)
+#define loop1 for(int i=1;i<n;i++)
+#define loopll for(ll i=0;i<n;i++)
+#define ld long double
+using namespace std;
+
+int main()
+{
+    int n,t=0;
+    while(1){
+        cin>>n;if(!n)break;
+        t++;
+        map<string,int> curr;string a,b;ld x;
+        loop(i,n){
+            cin>>a;curr[a]=i;
+        }
+        int m;cin>>m;ld dp[n][n];mset(dp,0.0);
+        loop(i,m){
+            cin>>a>>x>>b;
+            dp[curr[a]][curr[b]]=x;
+        }
+        loop(k,n)loop(i,n)loop(j,n)if(dp[i][j]<dp[i][k]*dp[k][j])dp[i][j]=dp[i][k]*dp[k][j];
+        if(dp[curr["USDollar"]][curr["USDollar"]]>1.0)
+        cout<<"Case "<<t<<": Yes"<<endl;
+        else cout<<"Case "<<t<<": No"<<endl;
+    }
+
+    return 0;
+}
