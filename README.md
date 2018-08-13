@@ -1,3 +1,2 @@
 # SPOJ
-Spoj solutions
-This contains SPOJ Solution codes in cpp.
+These are some of the SPOJ solutions by me.
